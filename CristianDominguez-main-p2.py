@@ -1,6 +1,7 @@
 from funcs import operaciones, menu, configuracionActual, logros
 import random
 
+
 cuentas = 0
 numMin = 0
 numMax = 10
@@ -14,6 +15,7 @@ bronce = False
 plata = False
 oro = False
 platino = False
+logroSuma = False
 vidaConfiguracion = 3
 
 while True:

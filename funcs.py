@@ -1,6 +1,7 @@
 import random
 
-def menu():
+
+def menu(): # Funcion para el menú
     print("=== CALCULATRON 2.0 ===")
     print("1. Jugar")
     print("2. Configuración")
@@ -9,7 +10,7 @@ def menu():
     print("0. Salir")
     print("========================")
 
-def operadorRandom() -> str:
+def operadorRandom() -> str: # Función para generar un operador aleatorio
     operadorAleatorio = random.randint(1,4)
     match operadorAleatorio:
         case 1:
@@ -23,7 +24,7 @@ def operadorRandom() -> str:
 
     return operador
 
-def operaciones(numMin: int, numMax: int) -> int:
+def operaciones(numMin: int, numMax: int) -> int: # Funcion para crear una cuenta aleatoria
     operador = operadorRandom()
     num1 = random.randint(numMin, numMax)
     num2 = random.randint(numMin, numMax)
@@ -45,13 +46,13 @@ def operaciones(numMin: int, numMax: int) -> int:
     print(f"{num1} {operador} {num2} = ?")
     return resultado
 
-def configuracionActual(vidaConfig: int, numMin:int, numMax:int) -> str:
+def configuracionActual(vidaConfig: int, numMin:int, numMax:int) -> str: # Funcion para el menú de configuración
     print("La configuración actual es: ")
     print(f"Tienes {vidaConfig} vidas.")
     print(f"El número mínimo es {numMin}.")
     print(f"El número máximo es {numMax}.")
 
-def logros(bronce:bool, plata:bool, oro:bool,platino:bool)-> str:
+def logros(bronce:bool, plata:bool, oro:bool,platino:bool)-> str: # Funcion para los logros
     if bronce == True:
         print("Logro de bronce: acierta tres operaciones seguidas en la misma partida -> LOGRADO")
     elif bronce == False:
@@ -72,3 +73,4 @@ def logros(bronce:bool, plata:bool, oro:bool,platino:bool)-> str:
     elif platino == False:
         print(
             "Logro de platino: acierta diez operaciones consecutivas en la misma partida con dificultad aumentada a numMin >= 10 y NumMax >= 15 -> NO LOGRADO")
+
