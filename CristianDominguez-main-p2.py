@@ -1,5 +1,4 @@
-from funcs import operaciones, menu, configuracionActual, logros
-import random
+from funcs import imprimirMenu, generarCuenta, configuracionActual, logros
 
 
 cuentas = 0
@@ -11,11 +10,10 @@ vidaConfig = 3
 partida = 0
 cuentasTotales = 0
 rachaMaxima = 0
-bronce = False
-plata = False
-oro = False
-platino = False
-logroSuma = False
+logroBronce = False
+logroPlata = False
+logroOro = False
+logroPlatino = False
 vidaConfiguracion = 3
 
 while True:
@@ -24,9 +22,8 @@ while True:
     falloRacha = 0
     racha = 0
     vida = vidaConfiguracion
-    cerrarConfiguracion = False
 
-    menu()
+    imprimirMenu()
     opcion = int(input("Inserta una opción: "))
 
     if opcion == 0:
@@ -37,7 +34,7 @@ while True:
         while vida > 0:
             cuentas +=1
             cuentasTotales +=1
-            resultadoCalculado = operaciones(numMin, numMax)
+            resultadoCalculado = generarCuenta(numMin, numMax)
             resultadoMio = int(input("Inserta el resultado: "))
 
             if resultadoMio == resultadoCalculado:
@@ -48,18 +45,18 @@ while True:
                 if racha > rachaMaxima:
                     rachaMaxima = racha
 
-                if racha == 3 and bronce == False:
+                if racha == 3 and logroBronce == False:
                     print("LOGRO DE BRONCE DESBLOQUEADO")
-                    bronce = True
-                elif racha == 7 and plata == False:
+                    logroBronce = True
+                elif racha == 7 and logroPlata == False:
                     print("LOGRO DE PLATA DESBLOQUEADO")
-                    plata = True
-                elif racha == 10 and oro == False:
+                    logroPlata = True
+                elif racha == 10 and logroOro == False:
                     print("LOGRO DE ORO DESBLOQUEADO")
-                    oro = True
+                    logroOro = True
                 elif racha == 10 and numMin >=10 and numMax >=25:
                     print("LOGRO PLATINO DESBLOQUEADO")
-                    platino = True
+                    logroPlatino = True
 
                 print("Has acertado")
 
@@ -76,7 +73,7 @@ while True:
         print(f"Has acertado {round(aciertos * 100 / cuentasTotales, 2)}%")
 
     elif opcion == 2:
-        while cerrarConfiguracion == False:
+        while True:
             print("1. Configuración de vida")
             print(f"2. Número mínimo {numMin}")
             print(f"3. Número máximo {numMax}")
@@ -104,8 +101,8 @@ while True:
                 configuracionActual(vidaConfiguracion,numMin, numMax)
 
             elif opcionConfiguracion == 0:
-                cerrarConfiguracion = True
                 print("Has salido del menú")
+                break
             else:
                 print("No has insertado una opción valida")
     elif opcion == 3:
@@ -120,4 +117,4 @@ while True:
             print(f"Tu porcentaje de aciertos es del {porcentajeAciertos} %")
         print(f"Has fallado un total de {fallosTotales} cuentas.")
     elif opcion == 4:
-        logros(bronce,plata,oro,platino)
+        logros(logroBronce,logroPlata,logroOro,logroPlatino)
