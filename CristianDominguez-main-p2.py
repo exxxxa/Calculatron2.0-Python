@@ -74,11 +74,12 @@ while True:
     elif opcion == 2:
         while True:
             configuracionActual(vidaConfiguracion, numMin, numMax)
-            print("")
+            print("---------------------------")
             print("1. Configuración de vida")
             print(f"2. Número mínimo {numMin}")
             print(f"3. Número máximo {numMax}")
             print("0. Salir")
+            print("---------------------------")
 
             opcionConfiguracion = int(input("Inserta una opcion: "))
 
@@ -107,14 +108,18 @@ while True:
             else:
                 print("No has insertado una opción valida")
     elif opcion == 3:
-
+        print("---------------------------")
         print(f"Has jugado un total de {partida} partidas.")
         print(f"En esas partidas has realizado un total de {cuentas} cuentas.")
         print(f"Has acertado un total de {aciertosTotales} cuentas.")
+        print("---------------------------")
         if aciertosTotales == 0:
+            print("---------------------------")
             print("Tu porcentaje de aciertos es del 0%")
+            print("---------------------------")
         else:
             porcentajeAciertos = int(aciertosTotales * 100 / cuentasTotales)
+            print("---------------------------")
             print(f"Tu porcentaje de aciertos es del {porcentajeAciertos} %")
         print(f"Has fallado un total de {fallosTotales} cuentas.")
     elif opcion == 4:
