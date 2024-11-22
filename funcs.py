@@ -12,15 +12,14 @@ def imprimirMenu(): # Funcion para el menú
 
 def operadorRandom() -> str: # Función para generar un operador aleatorio
     operadorAleatorio = random.randint(1,4)
-    match operadorAleatorio:
-        case 1:
-            operador = "+"
-        case 2:
-            operador = "-"
-        case 3:
-            operador = "*"
-        case 4:
-            operador = "%"
+    if operadorAleatorio == 1:
+        operador = "+"
+    elif operadorAleatorio == 2:
+        operador = "-"
+    elif operadorAleatorio == 3:
+        operador = "*"
+    elif operadorAleatorio == 4:
+        operador = "//"
 
     return operador
 
@@ -30,7 +29,7 @@ def generarCuenta(numMin: int, numMax: int) -> int: # Funcion para crear una cue
     num1 = random.randint(numMin, numMax)
     num2 = random.randint(numMin, numMax)
 
-    if operador == "%":
+    if operador == "//":
         while num2 == 0 or num1 % num2 != 0:
             num1 = random.randint(numMin, numMax)
             num2 = random.randint(numMin, numMax)
@@ -42,14 +41,15 @@ def generarCuenta(numMin: int, numMax: int) -> int: # Funcion para crear una cue
             resultado = num1 - num2
         case "*":
             resultado = num1 * num2
-        case "%":
-            resultado = num1 / num2
+        case "//":
+            resultado = num1 // num2
     print(f"{num1} {operador} {num2} = ?")
     return resultado
 
-def configuracionActual(vidaConfig: int, numMin:int, numMax:int) -> str: # Funcion para el menú de configuración
+
+def configuracionActual(vidaConfiguracion: int, numMin:int, numMax:int) -> str: # Funcion para el menú de configuración
     print("La configuración actual es: ")
-    print(f"Tienes {vidaConfig} vidas.")
+    print(f"Tienes {vidaConfiguracion} vidas.")
     print(f"El número mínimo es {numMin}.")
     print(f"El número máximo es {numMax}.")
 

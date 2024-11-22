@@ -6,7 +6,6 @@ numMin = 0
 numMax = 10
 aciertosTotales = 0
 fallosTotales = 0
-vidaConfig = 3
 partida = 0
 cuentasTotales = 0
 rachaMaxima = 0
@@ -74,6 +73,8 @@ while True:
 
     elif opcion == 2:
         while True:
+            configuracionActual(vidaConfiguracion, numMin, numMax)
+            print("")
             print("1. Configuración de vida")
             print(f"2. Número mínimo {numMin}")
             print(f"3. Número máximo {numMax}")
