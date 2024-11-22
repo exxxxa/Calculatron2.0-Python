@@ -110,17 +110,20 @@ while True:
     elif opcion == 3:
         print("---------------------------")
         print(f"Has jugado un total de {partida} partidas.")
-        print(f"En esas partidas has realizado un total de {cuentas} cuentas.")
-        print(f"Has acertado un total de {aciertosTotales} cuentas.")
-        print("---------------------------")
-        if aciertosTotales == 0:
-            print("---------------------------")
-            print("Tu porcentaje de aciertos es del 0%")
-            print("---------------------------")
+        print(f"En esas partidas has realizado un total de {cuentas} operaciones.")
+        print(f"Has acertado un total de {aciertosTotales} operaciones.")
+
+        if cuentasTotales > 0:
+            print(f"Tu porcentaje de acierto es {round(aciertosTotales * 100 / cuentasTotales, 2)}%")
+            print(f"Has fallado un total de {fallosTotales} operaciones.")
+            print(f"Tu porcentaje de fallos es de {round(fallosTotales * 100 / cuentasTotales, 2)}%")
         else:
-            porcentajeAciertos = int(aciertosTotales * 100 / cuentasTotales)
-            print("---------------------------")
-            print(f"Tu porcentaje de aciertos es del {porcentajeAciertos} %")
-        print(f"Has fallado un total de {fallosTotales} cuentas.")
+            print("Tu porcentaje de acierto es 0%")
+            print(f"Has fallado un total de {fallosTotales} operaciones.")
+            print("Tu porcentaje de fallos es de 0%")
+
+        print(f"Tu máxima racha de aciertos consecutivos es: {rachaMaxima} aciertos")
+        print("---------------------------")
+
     elif opcion == 4:
         logros(logroBronce,logroPlata,logroOro,logroPlatino)
